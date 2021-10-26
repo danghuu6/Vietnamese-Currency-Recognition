@@ -6,10 +6,10 @@ import os
 
 app = Flask(__name__)
 
-classes = ['0','10000','20000','50000']
+classes = ['0','10000','20000','50000','100000','200000','500000']
 
 # Load model
-model = load_model('vggmodel.h5')
+model = load_model('weights-16-0.33.hdf5')
 
 # Dự đoán nhãn
 def predict_label(image_path):
