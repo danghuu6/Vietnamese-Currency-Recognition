@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Classifer Demo</title>
+        <title>Nhận diện tiền VNĐ</title>
     </head>
     <body>
-        <h2>Uploade file</h2>
-        <p>{{ value }}</p>
+        <h2>UpLoad file dự đoán</h2>
+        <img src="{{img}}" height="400px" width=400px>
+        <p>Mệnh giá: {{ prediction }} VNĐ</p>
         <form action="/submit" method="post", enctype="multipart/form-data">
             <input type="file", name="my_image">
-            <input type="submit" value="upload">
+            <input type="submit" value="Upload">
         </form>
     </body>
 </html>
