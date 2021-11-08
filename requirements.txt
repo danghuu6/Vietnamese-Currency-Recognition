@@ -1,6 +1,0 @@
-Hệ thống nhận diện tiền Việt nam
-
-Yêu cầu:
-- Tiền VN chất liệu polime, không nhận dạng tiền chất liệu giấy.
-- Ảnh đầu vào phải chứa trọn vẹn 1 mặt của tờ tiền, không được gấp đôi.
-- Ảnh phải thể hiện rõ sự tương phản giữa tờ tiền và nền của ảnh.
