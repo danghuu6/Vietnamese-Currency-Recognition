@@ -64,7 +64,7 @@ def get_output():
 
         p = predict_label(img_path)
 
-        return render_template("index.html", img = img_path, prediction = p)
+        return render_template("index.html", img_path = img_path, prediction = p)
 
 
 if __name__ == '__main__':
