@@ -3,42 +3,12 @@ from keras.models import load_model
 from keras.preprocessing import image
 import numpy as np
 import os
-from keras.applications.vgg16 import VGG16
-from keras.layers import Input, Flatten, Dense, Dropout
-from keras.models import Model
 
 app = Flask(__name__)
 
-classes = ['0','10000','20000','50000', '100000', '200000', '500000']
+classes = ['10000','100000','20000', '200000', '50000', '500000']
 
-def get_model():
-    model_vgg16_conv = VGG16(weights='imagenet', include_top=False)
-
-    # Dong bang cac layer
-    for layer in model_vgg16_conv.layers:
-        layer.trainable = False
-
-    # Tao model
-    input = Input(shape=(224, 224, 3), name='image_input')
-    output_vgg16_conv = model_vgg16_conv(input)
-
-    # Them cac layer FC va Dropout
-    x = Flatten(name='flatten')(output_vgg16_conv)
-    x = Dense(4096, activation='relu', name='fc1')(x)
-    x = Dropout(0.5)(x)
-    x = Dense(4096, activation='relu', name='fc2')(x)
-    x = Dropout(0.5)(x)
-    x = Dense(7, activation='softmax', name='predictions')(x)
-
-    # Compile
-    my_model = Model(inputs=input, outputs=x)
-    my_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-
-    return my_model
-
-model = get_model()
-
-model.load_weights('weights-14-0.93.hdf5')
+model = load_model('final_model.h5')
 
 # Dự đoán nhãn
 def predict_label(image_path):
